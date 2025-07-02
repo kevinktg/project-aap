@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Text selection underline animations */
+.text-selection-container {
+  position: relative;
+  display: inline-block;
+}
+
+.text-selection-underline {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #eab308, #f59e0b);
+  border-radius: 1px;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 0 3px rgba(234, 179, 8, 0.4));
+}
+
+.text-selection-underline.active {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* Wavy underline effect */
+.wavy-underline {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.wavy-underline svg {
+  width: 100%;
+  height: 100%;
+}
+
+.wavy-underline.active {
+  opacity: 1;
+}
+
+/* Selection highlight styling */
+::selection {
+  background: rgba(234, 179, 8, 0.2);
+  color: inherit;
+}
+
+::-moz-selection {
+  background: rgba(234, 179, 8, 0.2);
+  color: inherit;
+}
+
+/* Enhanced slider styling with 3D effects */
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #eab308, #f59e0b);
+  cursor: pointer;
+  border: 3px solid #ffffff;
+  box-shadow: 0 4px 12px rgba(234, 179, 8, 0.4), 0 0 0 1px rgba(234, 179, 8, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2) translateY(-2px);
+  box-shadow: 0 8px 20px rgba(234, 179, 8, 0.6), 0 0 0 2px rgba(234, 179, 8, 0.3);
+  background: linear-gradient(135deg, #f59e0b, #eab308);
+}
+
+.slider::-webkit-slider-thumb:active {
+  transform: scale(1.1) translateY(-1px);
+  box-shadow: 0 6px 16px rgba(234, 179, 8, 0.5);
+}
+
+.slider::-moz-range-thumb {
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #eab308, #f59e0b);
+  cursor: pointer;
+  border: 3px solid #ffffff;
+  box-shadow: 0 4px 12px rgba(234, 179, 8, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slider::-moz-range-thumb:hover {
+  transform: scale(1.2) translateY(-2px);
+  box-shadow: 0 8px 20px rgba(234, 179, 8, 0.6);
+}
